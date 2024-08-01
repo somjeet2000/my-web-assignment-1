@@ -1,8 +1,8 @@
 .icon {
   position: relative;
-  color: #d0c4c4; /* Adjust icon color as needed for dark background */
+  color: #d0c4c4;
   cursor: pointer;
-  padding: 8px; /* Adjust padding as needed */
+  padding: 8px;
   background-color: rgba(255, 255, 255, 0.2); /* Background color */
   border-radius: 50%; /* Makes the background a circle */
 }
@@ -22,8 +22,8 @@
 
 .icon-image img {
   border-radius: 50%;
-  width: 100%; /* Adjust size as needed */
-  height: 100%; /* Adjust size as needed */
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -63,8 +63,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 10px; /* Adjust size as needed */
-  height: 10px; /* Adjust size as needed */
+  width: 10px;
+  height: 10px;
   background-color: rgb(61, 141, 168); /* Notification color */
   border-radius: 50%; /* Makes the badge a circle */
   border: 1px solid #343a40; /* Optional: border to match the background */
