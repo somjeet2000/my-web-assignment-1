@@ -39,7 +39,7 @@ const Header = () => {
             </div>
           </form>
           <button
-            class='navbar-toggler'
+            className='navbar-toggler'
             type='button'
             data-bs-toggle='collapse'
             data-bs-target='#navbarTogglerDemo02'
@@ -47,9 +47,9 @@ const Header = () => {
             aria-expanded='false'
             aria-label='Toggle navigation'
           >
-            <span class='navbar-toggler-icon'></span>
+            <span className='navbar-toggler-icon'></span>
           </button>
-          <div class='collapse navbar-collapse' id='navbarTogglerDemo02'>
+          <div className='collapse navbar-collapse' id='navbarTogglerDemo02'>
             <div className='d-flex gap-3 mx-2 p-2 ms-auto'>
               <FontAwesomeIcon className='icon' icon={faEnvelope} />
               <FontAwesomeIcon className='icon' icon={faGear} />
