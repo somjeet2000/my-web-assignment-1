@@ -1,0 +1,72 @@
+.icon {
+  position: relative;
+  color: #d0c4c4; /* Adjust icon color as needed for dark background */
+  cursor: pointer;
+  padding: 8px; /* Adjust padding as needed */
+  background-color: rgba(255, 255, 255, 0.2); /* Background color */
+  border-radius: 50%; /* Makes the background a circle */
+}
+
+.icon-image {
+  position: relative;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2); /* Background color */
+  border-radius: 50%; /* Makes the background a circle */
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+}
+
+.icon-image img {
+  border-radius: 50%;
+  width: 100%; /* Adjust size as needed */
+  height: 100%; /* Adjust size as needed */
+  object-fit: cover;
+}
+
+.input-group {
+  max-width: 300%;
+  border: 1px solid #b1aaaa; /* Add border to input group */
+  border-radius: 5px; /* Add border-radius to input group */
+}
+
+.input-group .form-control {
+  background-color: #343a40; /* Dark background for input */
+  color: #d0c4c4; /* White text color */
+  border: none;
+  transition: none;
+}
+
+.input-group .input-group-text {
+  background-color: #343a40; /* Match background color with input */
+  border: none; /* Remove border */
+  transition: none;
+}
+
+.Magnifying-glass {
+  color: #b1aaaa;
+}
+
+.input-group .form-control:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: none; /* Remove box-shadow */
+}
+
+.notification-icon {
+  position: relative;
+}
+
+.notification-icon .notification-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px; /* Adjust size as needed */
+  height: 10px; /* Adjust size as needed */
+  background-color: rgb(61, 141, 168); /* Notification color */
+  border-radius: 50%; /* Makes the badge a circle */
+  border: 1px solid #343a40; /* Optional: border to match the background */
+  transform: translate(-50%, 50%);
+}
