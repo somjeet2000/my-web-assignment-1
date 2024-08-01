@@ -10,56 +10,56 @@ const Header = () => {
   return (
     <div>
       <nav
-        className='navbar bg-dark border-bottom border-body rounded border border-dark navbar-expand-lg'
-        data-bs-theme='dark'
+        className="navbar bg-dark border-body rounded-top border-top border-dark navbar-expand-lg"
+        data-bs-theme="dark"
       >
-        <div className='container-fluid'>
-          <a className='navbar-brand' href='/'>
+        <div className="container-fluid">
+          <a className="navbar-brand navbar-icon" href="/">
             <FontAwesomeIcon
               icon={faReact}
               style={{
                 width: '40px',
                 height: '34px',
-                margin: '0.25rem 2rem 0.25rem 0.25rem',
+                marginRight: '2rem',
+                paddingLeft: '0.5rem',
               }}
             />
           </a>
 
-          <form className='d-flex align-items-center ms-0' role='search'>
-            <div className='input-group'>
-              <span className='input-group-text bg-dark border-0'>
-                <FontAwesomeIcon icon={faSearch} className='Magnifying-glass' />
+          <form className="d-flex align-items-center mx-auto" role="search">
+            <div className="input-group search-bar">
+              <span className="input-group-text bg-dark border-0">
+                <FontAwesomeIcon icon={faSearch} className="Magnifying-glass" />
               </span>
               <input
-                className='form-control bg-dark'
-                type='search'
-                placeholder='Search'
-                aria-label='Search'
+                className="form-control input-search bg-dark"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
               />
             </div>
           </form>
           <button
-            className='navbar-toggler'
-            type='button'
-            data-bs-toggle='collapse'
-            data-bs-target='#navbarTogglerDemo02'
-            aria-controls='navbarTogglerDemo02'
-            aria-expanded='false'
-            aria-label='Toggle navigation'
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            <span className='navbar-toggler-icon'></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div className='collapse navbar-collapse' id='navbarTogglerDemo02'>
-            <div className='d-flex gap-3 mx-2 p-2 ms-auto'>
-              <FontAwesomeIcon className='icon' icon={faEnvelope} />
-              <FontAwesomeIcon className='icon' icon={faGear} />
-              <div className='notification-icon'>
-                <FontAwesomeIcon className='icon' icon={faBell} />
-                <div className='notification-badge'></div>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <div className="d-flex ms-auto gap-3 p-2">
+              <FontAwesomeIcon className="icon" icon={faEnvelope} />
+              <FontAwesomeIcon className="icon" icon={faGear} />
+              <div className="notification-icon">
+                <FontAwesomeIcon className="icon" icon={faBell} />
+                <div className="notification-badge"></div>
               </div>
-              {/* <FontAwesomeIcon className='icon' icon={faBell} /> */}
-              <div className='icon-image'>
-                <img src={Image} alt='Profile' />
+              <div className="icon-image">
+                <img src={Image} alt="Profile" />
               </div>
             </div>
           </div>

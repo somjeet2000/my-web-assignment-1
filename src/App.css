@@ -41,4 +41,5 @@ body {
   background-color: rgba(28, 28, 28, 1); /* Dark background */
   color: rgba(255, 255, 255, 0.87); /* Light text color for readability */
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
