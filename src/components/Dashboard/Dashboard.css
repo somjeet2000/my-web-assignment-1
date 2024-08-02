@@ -1,3 +1,36 @@
 .summary-card .card-body {
   color: white;
 }
+
+/* Default styles for larger screens (laptops, desktops) */
+.custom-grid .col-md-2 {
+  flex: 0 0 16.66667%;
+  max-width: 16.66667%;
+}
+.custom-grid .col-md-4 {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+}
+
+@media (max-width: 1100px) {
+  .custom-grid .col-lg-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+  .custom-grid .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* Styles for mobile devices */
+@media (max-width: 767px) {
+  .custom-grid .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .custom-grid .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
