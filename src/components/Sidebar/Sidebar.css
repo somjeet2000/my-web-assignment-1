@@ -19,6 +19,8 @@
 
 .sidebar a:hover {
   color: #17a2b8; /* Default link color */
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.2rem;
 }
 
 .sidebar a.active {
@@ -33,8 +35,13 @@
   bottom: 0;
   width: 4px;
   background-color: #17a2b8; /* Line color */
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
   border-radius: 2rem;
+  /*
+    Transition to add the feature that when I click on the other icon, it line should moves with effect
+  */
+  transition: top 0.3s ease, height 0.3s ease;
+  height: 100%;
 }
 
 @media (max-width: 1200px) {
