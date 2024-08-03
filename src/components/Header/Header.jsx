@@ -28,11 +28,11 @@ const Header = () => {
 
           <form className='d-flex align-items-center mx-auto' role='search'>
             <div className='input-group search-bar'>
-              <span className='input-group-text bg-dark border-0'>
+              <span className='input-group-text border-0'>
                 <FontAwesomeIcon icon={faSearch} className='Magnifying-glass' />
               </span>
               <input
-                className='form-control input-search bg-dark'
+                className='form-control input-search'
                 type='search'
                 placeholder='Search'
                 aria-label='Search'

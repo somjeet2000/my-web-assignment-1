@@ -11,6 +11,7 @@ import {
   faBurger,
   faMugHot,
   faAngleRight,
+  faStar,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -19,6 +20,7 @@ import {
 } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import ActivityChart from '../ActivityChart';
+import Image from './Image.jpg';
 
 const Dashboard = () => {
   const percentage = 70;
@@ -79,13 +81,13 @@ const Dashboard = () => {
           />
           <div className='col-12 col-md-4 col-lg-6 mb-3'>
             <div
-              class='card bg-dark'
+              className='card bg-dark'
               style={{ color: '#fff', maxHeight: '200px' }}
             >
               <div className='card-body d-flex flex-row justify-content-between'>
-                <div class='d-flex flex-column'>
+                <div className='d-flex flex-column'>
                   <div
-                    class='card-title text-start pb-2'
+                    className='card-title text-start pb-2'
                     style={{ fontSize: '0.8rem' }}
                   >
                     Net Profit
@@ -101,7 +103,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-                <div className='mw-50 h-auto' style={{ width: '121px' }}>
+                <div className='mw-50 h-auto' style={{ width: '100px' }}>
                   <CircularProgressbarWithChildren
                     value={percentage}
                     strokeWidth={15}
@@ -117,25 +119,28 @@ const Dashboard = () => {
                       }}
                     >
                       {percentage}%
-                      <p style={{ fontSize: '0.5rem' }}>Goal Completed</p>
+                      <p style={{ fontSize: '0.4rem' }}>Goal Completed</p>
                     </label>
                   </CircularProgressbarWithChildren>
+                  <label className='p-1 mw-50' style={{ fontSize: '0.4rem' }}>
+                    *The values here has been rounded off.
+                  </label>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className='row'>
-          <div class='col-12 col-md-8 mb-3'>
-            <div class='card bg-dark' style={{ color: '#fff' }}>
-              <div class='card-body'>
+        <div className='row custom-grid'>
+          <div className='col-12 col-lg-6 col-md-8 mb-3'>
+            <div className='card bg-dark' style={{ color: '#fff' }}>
+              <div className='card-body'>
                 <div className='d-flex justify-content-between align-items-center'>
-                  <div className='card-title'>Activity</div>
+                  <div className='card-title fw-medium'>Activity</div>
                   <select
                     className='p-1'
                     style={{
                       color: '#fff',
-                      backgroundColor: 'rgba(255,255,255,0.2)',
+                      backgroundColor: '#383840',
                       maxWidth: '100px',
                       height: '25px',
                       borderRadius: '3rem',
@@ -163,7 +168,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div class='col-12 col-md-4 mb-3'>
+          <div className='col-12 col-lg-6 col-md-4 mb-3'>
             <div className='card bg-dark' style={{ color: '#fff' }}>
               <div className='card-body'>
                 <div>
@@ -257,6 +262,259 @@ const Dashboard = () => {
                       />
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='row custom-grid'>
+          <div className='col-12 col-lg-6 col-md-8 mb-3'>
+            <div className='card bg-dark h-100' style={{ color: '#fff' }}>
+              <div className='card-body'>
+                <div className='d-flex justify-content between align-items-center'>
+                  <div className='card-title fw-medium'>Recent Orders</div>
+                </div>
+                <div className='d-flex fw-normal'>
+                  <table
+                    className='table table-dark table-hover align-middle'
+                    style={{
+                      fontSize: '0.7rem',
+                      textAlign: 'start',
+                    }}
+                  >
+                    <thead>
+                      <tr>
+                        <th className='fw-semibold' scope='col'>
+                          Customer
+                        </th>
+                        <th className='fw-semibold' scope='col'>
+                          Order No.
+                        </th>
+                        <th className='fw-semibold' scope='col'>
+                          Amount
+                        </th>
+                        <th className='fw-semibold' scope='col'>
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          className='d-flex align-items-center gap-2'
+                          style={{ paddingLeft: '0' }}
+                        >
+                          <div className='icon-image-customer'>
+                            <img src={Image} alt='Profile' />
+                          </div>
+                          Wade Warren
+                        </td>
+                        <td>15478256</td>
+                        <td>$124.00</td>
+                        <td>
+                          <span className='badge rounded-pill text-bg-success fw-lighter'>
+                            Delivered
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          className='d-flex align-items-center gap-2'
+                          style={{ paddingLeft: '0' }}
+                        >
+                          <div className='icon-image-customer'>
+                            <img src={Image} alt='Profile' />
+                          </div>
+                          Jane Cooper
+                        </td>
+                        <td>48965786</td>
+                        <td>$365.02</td>
+                        <td>
+                          <span className='badge rounded-pill text-bg-success fw-lighter'>
+                            Delivered
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          className='d-flex align-items-center gap-2'
+                          style={{ paddingLeft: '0' }}
+                        >
+                          <div className='icon-image-customer'>
+                            <img src={Image} alt='Profile' />
+                          </div>
+                          Guy Hawkins
+                        </td>
+                        <td>78958215</td>
+                        <td>$45.88</td>
+                        <td>
+                          <span className='badge rounded-pill text-bg-danger fw-lighter'>
+                            Cancelled
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          className='d-flex align-items-center gap-2'
+                          style={{ paddingLeft: '0' }}
+                        >
+                          <div className='icon-image-customer'>
+                            <img src={Image} alt='Profile' />
+                          </div>
+                          Kristin Watson
+                        </td>
+                        <td>20965732</td>
+                        <td>$65.00</td>
+                        <td>
+                          <span className='badge rounded-pill text-bg-danger fw-lighter'>
+                            Pending
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          className='d-flex align-items-center gap-2'
+                          style={{ paddingLeft: '0' }}
+                        >
+                          <div className='icon-image-customer'>
+                            <img src={Image} alt='Profile' />
+                          </div>
+                          Cody Fisher
+                        </td>
+                        <td>95715620</td>
+                        <td>$545.00</td>
+                        <td>
+                          <span className='badge rounded-pill text-bg-success fw-lighter'>
+                            Delivered
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          className='d-flex align-items-center gap-2'
+                          style={{ paddingLeft: '0' }}
+                        >
+                          <div className='icon-image-customer'>
+                            <img src={Image} alt='Profile' />
+                          </div>
+                          Savannah Nguyen
+                        </td>
+                        <td>78514568</td>
+                        <td>$128.20</td>
+                        <td>
+                          <span className='badge rounded-pill text-bg-success fw-lighter'>
+                            Delivered
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='col-12 col-lg-6 col-md-4 mb-3'>
+            <div className='card bg-dark h-100' style={{ color: '#fff' }}>
+              <div className='card-body'>
+                <div className='d-flex justify-content-between fw-medium pb-2'>
+                  Customer's Feedback
+                </div>
+                <div>
+                  <table className='table table-dark text-start'>
+                    <tbody className='d-flex flex-column'>
+                      <tr>
+                        <td>
+                          <div className='d-flex flex-row align-items-center gap-2 pb-2 fw-medium'>
+                            <div className='icon-image-customer'>
+                              <img src={Image} alt='Profile' />
+                            </div>
+                            Jenny Wilson
+                          </div>
+                          <div className='pb-1'>
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              color='#F4E409'
+                              style={{ paddingRight: '1px' }}
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              color='#F4E409'
+                              style={{ paddingRight: '1px' }}
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              color='#F4E409'
+                              style={{ paddingRight: '1px' }}
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              color='#F4E409'
+                              style={{ paddingRight: '1px' }}
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              style={{ paddingRight: '1px' }}
+                            />
+                          </div>
+                          <div
+                            className='lh-base'
+                            style={{ fontSize: '0.7rem', color: '#d0c4c4' }}
+                          >
+                            The food was excellent and so was the service. I had
+                            the mushroom risotto with scallops which was
+                            awesome. I had a burger over greens (gluten-free)
+                            which was also very good. They were very
+                            conscientious about gluten allergies.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div className='d-flex flex-row align-items-center gap-2 pb-2 fw-medium'>
+                            <div className='icon-image-customer'>
+                              <img src={Image} alt='Profile' />
+                            </div>
+                            Dianne Russell
+                          </div>
+                          <div className='pb-1'>
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              color='#F4E409'
+                              style={{ paddingRight: '1px' }}
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              color='#F4E409'
+                              style={{ paddingRight: '1px' }}
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              color='#F4E409'
+                              style={{ paddingRight: '1px' }}
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              color='#F4E409'
+                              style={{ paddingRight: '1px' }}
+                            />
+                            <FontAwesomeIcon
+                              icon={faStar}
+                              color='#FAE409'
+                              style={{ paddingRight: '1px' }}
+                            />
+                          </div>
+                          <div
+                            className='lh-base'
+                            style={{ fontSize: '0.7rem', color: '#d0c4c4' }}
+                          >
+                            We enjoyed the Eggs Benedict served on homemade
+                            focaccia bread and hot coffee. I am happy with the
+                            service.
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-  max-width: 300px; /* Fixed size at a certain breakpoint */
+  max-width: 75px; /* Fixed size at a certain breakpoint */
   transition: max-width 0.3s ease;
 }
 
@@ -14,7 +14,7 @@
   padding: 2px;
   position: relative;
   text-decoration: none;
-  width: 5rem;
+  width: 4.5rem;
   transition: all 0.3s ease;
 }
 

@@ -28,19 +28,19 @@
 }
 
 .input-group {
-  border: 1px solid #b1aaaa; /* Add border to input group */
+  border: 1px solid #5c5858; /* Add border to input group */
   border-radius: 5px; /* Add border-radius to input group */
 }
 
 .input-group .form-control {
-  background-color: #343a40; /* Dark background for input */
+  background-color: #2a2a2c;
   color: #d0c4c4; /* White text color */
   border: none;
   transition: none;
 }
 
 .input-group .input-group-text {
-  background-color: #343a40; /* Match background color with input */
+  background-color: #2a2a2c; /* Match background color with input */
   border: none; /* Remove border */
   transition: none;
 }
