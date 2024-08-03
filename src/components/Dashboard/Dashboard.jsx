@@ -148,7 +148,7 @@ const Dashboard = () => {
                       border: 'none',
                     }}
                   >
-                    <option selected value='Weekly' className='bg-dark'>
+                    <option defaultValue value='Weekly' className='bg-dark'>
                       Weekly
                     </option>
                     <option value='Daily' className='bg-dark'>
