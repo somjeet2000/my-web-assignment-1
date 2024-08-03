@@ -23,7 +23,7 @@ import ActivityChart from '../ActivityChart';
 const Dashboard = () => {
   const percentage = 70;
   return (
-    <main className='container'>
+    <main className='container-fluid custom-container'>
       <div className='row custom-grid'>
         <div className='d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center'>
           <h4 className='pt-3 pb-2'>Dashboard</h4>
