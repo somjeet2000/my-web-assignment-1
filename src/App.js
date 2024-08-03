@@ -5,16 +5,17 @@ import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
-      <div>
-        <div className="row">
-          <div className="col-1" id="sidebar-wrapper">
-            <Sidebar />
-          </div>
-          <div className="col-11" id="page-content-wrapper">
-            <Dashboard />
-          </div>
+      <div
+        className='main-content'
+        style={{ display: 'flex', flexWrap: 'wrap' }}
+      >
+        <div className='col-1' id='sidebar-wrapper'>
+          <Sidebar />
+        </div>
+        <div className='col-11' id='page-content-wrapper'>
+          <Dashboard />
         </div>
       </div>
     </div>

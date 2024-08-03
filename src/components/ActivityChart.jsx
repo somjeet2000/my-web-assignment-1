@@ -71,7 +71,6 @@ const ActivityChart = () => {
             if (value === 15000) return '15k   ';
             return '';
           },
-          padding: 1,
         },
         grid: {
           drawBorder: false,
@@ -82,7 +81,6 @@ const ActivityChart = () => {
             return 'rgba(0, 0, 0, 0)'; // Transparent for all other lines
           },
           lineWidth: 0.5, // Thin lines
-          offset: false,
         },
       },
       x: {

@@ -51,7 +51,7 @@ const Summary = (props) => {
                 className='fw-medium'
                 style={{ color: `${caretIconColor}`, fontSize: '0.9rem' }}
               >
-                <FontAwesomeIcon icon={caretIcon} className='mx-2' />
+                <FontAwesomeIcon icon={caretIcon} className='me-1' />
                 3%
               </div>
             </div>

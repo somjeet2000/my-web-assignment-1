@@ -25,8 +25,8 @@ import Image from './Image.jpg';
 const Dashboard = () => {
   const percentage = 70;
   return (
-    <main className='container-fluid custom-container'>
-      <div className='row custom-grid'>
+    <main className='container custom-container'>
+      <div className='custom-grid'>
         <div className='d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center'>
           <h4 className='pt-3 pb-2'>Dashboard</h4>
         </div>
@@ -87,7 +87,7 @@ const Dashboard = () => {
               <div className='card-body d-flex flex-row justify-content-between'>
                 <div className='d-flex flex-column'>
                   <div
-                    className='card-title text-start pb-2'
+                    className='card-title text-start pb-1'
                     style={{ fontSize: '0.8rem' }}
                   >
                     Net Profit
@@ -95,10 +95,10 @@ const Dashboard = () => {
                   <div className='card-text d-flex flex-column align-items-start'>
                     <div className='fs-2 fw-semibold pb-3'>$6759.25</div>
                     <div
-                      className='fw-medium p-1'
+                      className='fw-medium'
                       style={{ color: '#82B535', fontSize: '0.9rem' }}
                     >
-                      <FontAwesomeIcon icon={faCaretUp} className='me-2' />
+                      <FontAwesomeIcon icon={faCaretUp} className='me-1' />
                       3%
                     </div>
                   </div>
@@ -131,7 +131,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className='row custom-grid'>
-          <div className='col-12 col-lg-6 col-md-8 mb-3'>
+          <div className='col-12 col-lg-6 col-md-8 mb-3 h-100'>
             <div className='card bg-dark' style={{ color: '#fff' }}>
               <div className='card-body'>
                 <div className='d-flex justify-content-between align-items-center'>
@@ -168,7 +168,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className='col-12 col-lg-6 col-md-4 mb-3'>
+          <div className='col-12 col-lg-6 col-md-4 mb-3 h-100'>
             <div className='card bg-dark' style={{ color: '#fff' }}>
               <div className='card-body'>
                 <div>
@@ -267,14 +267,14 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className='row custom-grid'>
+        <div className='row custom-grid h-100'>
           <div className='col-12 col-lg-6 col-md-8 mb-3'>
             <div className='card bg-dark h-100' style={{ color: '#fff' }}>
               <div className='card-body'>
                 <div className='d-flex justify-content between align-items-center'>
                   <div className='card-title fw-medium'>Recent Orders</div>
                 </div>
-                <div className='d-flex fw-normal'>
+                <div className='d-flex fw-normal table-responsive'>
                   <table
                     className='table table-dark table-hover align-middle'
                     style={{
@@ -312,7 +312,13 @@ const Dashboard = () => {
                         <td>15478256</td>
                         <td>$124.00</td>
                         <td>
-                          <span className='badge rounded-pill text-bg-success fw-lighter'>
+                          <span
+                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            style={{
+                              backgroundColor: '#14591D',
+                              color: '#E1E289',
+                            }}
+                          >
                             Delivered
                           </span>
                         </td>
@@ -330,7 +336,13 @@ const Dashboard = () => {
                         <td>48965786</td>
                         <td>$365.02</td>
                         <td>
-                          <span className='badge rounded-pill text-bg-success fw-lighter'>
+                          <span
+                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            style={{
+                              backgroundColor: '#14591D',
+                              color: '#E1E289',
+                            }}
+                          >
                             Delivered
                           </span>
                         </td>
@@ -348,7 +360,13 @@ const Dashboard = () => {
                         <td>78958215</td>
                         <td>$45.88</td>
                         <td>
-                          <span className='badge rounded-pill text-bg-danger fw-lighter'>
+                          <span
+                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            style={{
+                              backgroundColor: '#A50104',
+                              color: '#FFB4B4',
+                            }}
+                          >
                             Cancelled
                           </span>
                         </td>
@@ -366,7 +384,13 @@ const Dashboard = () => {
                         <td>20965732</td>
                         <td>$65.00</td>
                         <td>
-                          <span className='badge rounded-pill text-bg-danger fw-lighter'>
+                          <span
+                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            style={{
+                              backgroundColor: '#A50104',
+                              color: '#FFB4B4',
+                            }}
+                          >
                             Pending
                           </span>
                         </td>
@@ -384,7 +408,13 @@ const Dashboard = () => {
                         <td>95715620</td>
                         <td>$545.00</td>
                         <td>
-                          <span className='badge rounded-pill text-bg-success fw-lighter'>
+                          <span
+                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            style={{
+                              backgroundColor: '#14591D',
+                              color: '#E1E289',
+                            }}
+                          >
                             Delivered
                           </span>
                         </td>
@@ -402,7 +432,13 @@ const Dashboard = () => {
                         <td>78514568</td>
                         <td>$128.20</td>
                         <td>
-                          <span className='badge rounded-pill text-bg-success fw-lighter'>
+                          <span
+                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            style={{
+                              backgroundColor: '#14591D',
+                              color: '#E1E289',
+                            }}
+                          >
                             Delivered
                           </span>
                         </td>
