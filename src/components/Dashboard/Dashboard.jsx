@@ -21,89 +21,97 @@ import {
 import 'react-circular-progressbar/dist/styles.css';
 import ActivityChart from '../ActivityChart';
 import Image from './Image.jpg';
+import Profile1 from './Profile1.jpeg';
+import Profile2 from './Profile2.png';
+import Profile3 from './Profile3.jpg';
+import Profile4 from './Profile4.jpg';
+import Profile5 from './Profile5.jpeg';
+import Profile6 from './Profile6.jpeg';
+import Profile7 from './Profile7.jpeg';
+import Profile8 from './Profile8.jpeg';
 
 const Dashboard = () => {
   const percentage = 70;
   return (
-    <main className='container custom-container'>
-      <div className='custom-grid'>
-        <div className='d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center'>
-          <h4 className='pt-3 pb-2'>Dashboard</h4>
+    <main className="container custom-container">
+      <div className="custom-grid">
+        <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
+          <h4 className="pt-3 pb-2">Dashboard</h4>
         </div>
-        <div className='row'>
+        <div className="row">
           <Summary
-            title='Total Orders'
-            description='75'
-            mobile='6'
-            mediumDevices='2'
-            largeDevices='4'
+            title="Total Orders"
+            description="75"
+            mobile="6"
+            mediumDevices="2"
+            largeDevices="4"
             icon={faCartPlus}
-            color='#058EFF'
-            backgroundColor='#0e5187'
+            color="#058EFF"
+            backgroundColor="#0e5187"
             caretIcon={faCaretUp}
-            caretIconColor='#82B535'
+            caretIconColor="#82B535"
           />
           <Summary
-            title='Total Delivered'
-            description='70'
-            mobile='6'
-            mediumDevices='2'
-            largeDevices='4'
+            title="Total Delivered"
+            description="70"
+            mobile="6"
+            mediumDevices="2"
+            largeDevices="4"
             icon={faBagShopping}
-            color='#61DA87'
-            backgroundColor='#3A5743'
+            color="#61DA87"
+            backgroundColor="#3A5743"
             caretIcon={faCaretDown}
-            caretIconColor='#D7263D'
+            caretIconColor="#D7263D"
           />
           <Summary
-            title='Total Cancelled'
-            description='05'
-            mobile='6'
-            mediumDevices='2'
-            largeDevices='4'
+            title="Total Cancelled"
+            description="05"
+            mobile="6"
+            mediumDevices="2"
+            largeDevices="4"
             icon={faBagShopping}
-            color='#E63E54'
-            backgroundColor='#904D56'
+            color="#E63E54"
+            backgroundColor="#904D56"
             caretIcon={faCaretUp}
-            caretIconColor='#82B535'
+            caretIconColor="#82B535"
           />
           <Summary
-            title='Total Revenue'
-            description='$12k'
-            mobile='6'
-            mediumDevices='2'
-            largeDevices='6'
+            title="Total Revenue"
+            description="$12k"
+            mobile="6"
+            mediumDevices="2"
+            largeDevices="6"
             icon={faHandHoldingDollar}
-            color='#E77AC5'
-            backgroundColor='#715669'
+            color="#E77AC5"
+            backgroundColor="#715669"
             caretIcon={faCaretDown}
-            caretIconColor='#D7263D'
+            caretIconColor="#D7263D"
           />
-          <div className='col-12 col-md-4 col-lg-6 mb-3'>
+          <div className="col-12 col-md-4 col-lg-6 mb-3">
             <div
-              className='card bg-dark'
+              className="card bg-dark"
               style={{ color: '#fff', maxHeight: '200px' }}
             >
-              <div className='card-body d-flex flex-row justify-content-between'>
-                <div className='d-flex flex-column'>
+              <div className="card-body d-flex flex-row justify-content-between">
+                <div className="d-flex flex-column">
                   <div
-                    className='card-title text-start pb-1'
+                    className="card-title text-start pb-1"
                     style={{ fontSize: '0.8rem' }}
                   >
                     Net Profit
                   </div>
-                  <div className='card-text d-flex flex-column align-items-start'>
-                    <div className='fs-2 fw-semibold pb-3'>$6759.25</div>
+                  <div className="card-text d-flex flex-column align-items-start">
+                    <div className="fs-2 fw-semibold pb-3">$6759.25</div>
                     <div
-                      className='fw-medium'
+                      className="fw-medium"
                       style={{ color: '#82B535', fontSize: '0.9rem' }}
                     >
-                      <FontAwesomeIcon icon={faCaretUp} className='me-1' />
+                      <FontAwesomeIcon icon={faCaretUp} className="me-1" />
                       3%
                     </div>
                   </div>
                 </div>
-                <div className='mw-50 h-auto' style={{ width: '100px' }}>
+                <div className="mw-50 h-auto" style={{ width: '100px' }}>
                   <CircularProgressbarWithChildren
                     value={percentage}
                     strokeWidth={15}
@@ -122,7 +130,7 @@ const Dashboard = () => {
                       <p style={{ fontSize: '0.4rem' }}>Goal Completed</p>
                     </label>
                   </CircularProgressbarWithChildren>
-                  <label className='p-1 mw-50' style={{ fontSize: '0.4rem' }}>
+                  <label className="p-1 mw-50" style={{ fontSize: '0.4rem' }}>
                     *The values here has been rounded off.
                   </label>
                 </div>
@@ -130,14 +138,14 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className='row custom-grid'>
-          <div className='col-12 col-lg-6 col-md-8 mb-3 h-100'>
-            <div className='card bg-dark' style={{ color: '#fff' }}>
-              <div className='card-body'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='card-title fw-medium'>Activity</div>
+        <div className="row custom-grid">
+          <div className="col-12 col-lg-6 col-md-8 mb-3 h-100">
+            <div className="card bg-dark" style={{ color: '#fff' }}>
+              <div className="card-body">
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="card-title fw-medium">Activity</div>
                   <select
-                    className='p-1'
+                    className="p-1"
                     style={{
                       color: '#fff',
                       backgroundColor: '#383840',
@@ -148,16 +156,16 @@ const Dashboard = () => {
                       border: 'none',
                     }}
                   >
-                    <option defaultValue value='Weekly' className='bg-dark'>
+                    <option defaultValue value="Weekly" className="bg-dark">
                       Weekly
                     </option>
-                    <option value='Daily' className='bg-dark'>
+                    <option value="Daily" className="bg-dark">
                       Daily
                     </option>
-                    <option value='Monthly' className='bg-dark'>
+                    <option value="Monthly" className="bg-dark">
                       Monthly
                     </option>
-                    <option value='Yearly' className='bg-dark'>
+                    <option value="Yearly" className="bg-dark">
                       Yearly
                     </option>
                   </select>
@@ -168,13 +176,13 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className='col-12 col-lg-6 col-md-4 mb-3 h-100'>
-            <div className='card bg-dark' style={{ color: '#fff' }}>
-              <div className='card-body'>
+          <div className="col-12 col-lg-6 col-md-4 mb-3 h-100">
+            <div className="card bg-dark" style={{ color: '#fff' }}>
+              <div className="card-body">
                 <div>
-                  <div className='d-flex align-items-center'>
+                  <div className="d-flex align-items-center">
                     <div
-                      className='m-2'
+                      className="m-2"
                       style={{
                         width: '55px',
                         height: '55px',
@@ -187,8 +195,8 @@ const Dashboard = () => {
                     >
                       <FontAwesomeIcon icon={faBullseye} />
                     </div>
-                    <label className='p-2'>Goals</label>
-                    <div className='ms-auto'>
+                    <label className="p-2">Goals</label>
+                    <div className="ms-auto">
                       <FontAwesomeIcon
                         icon={faAngleRight}
                         style={{
@@ -202,9 +210,9 @@ const Dashboard = () => {
                       />
                     </div>
                   </div>
-                  <div className='d-flex align-items-center'>
+                  <div className="d-flex align-items-center">
                     <div
-                      className='m-2'
+                      className="m-2"
                       style={{
                         width: '55px',
                         height: '55px',
@@ -217,8 +225,8 @@ const Dashboard = () => {
                     >
                       <FontAwesomeIcon icon={faBurger} />
                     </div>
-                    <label className='p-2'>Popular Dishes</label>
-                    <div className='ms-auto'>
+                    <label className="p-2">Popular Dishes</label>
+                    <div className="ms-auto">
                       <FontAwesomeIcon
                         icon={faAngleRight}
                         style={{
@@ -232,9 +240,9 @@ const Dashboard = () => {
                       />
                     </div>
                   </div>
-                  <div className='d-flex align-items-center'>
+                  <div className="d-flex align-items-center">
                     <div
-                      className='m-2'
+                      className="m-2"
                       style={{
                         width: '55px',
                         height: '55px',
@@ -247,8 +255,8 @@ const Dashboard = () => {
                     >
                       <FontAwesomeIcon icon={faMugHot} />
                     </div>
-                    <label className='p-2'>Menus</label>
-                    <div className='ms-auto'>
+                    <label className="p-2">Menus</label>
+                    <div className="ms-auto">
                       <FontAwesomeIcon
                         icon={faAngleRight}
                         style={{
@@ -267,16 +275,16 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className='row custom-grid h-100'>
-          <div className='col-12 col-lg-6 col-md-8 mb-3'>
-            <div className='card bg-dark h-100' style={{ color: '#fff' }}>
-              <div className='card-body'>
-                <div className='d-flex justify-content between align-items-center'>
-                  <div className='card-title fw-medium'>Recent Orders</div>
+        <div className="row custom-grid h-100">
+          <div className="col-12 col-lg-6 col-md-8 mb-3">
+            <div className="card bg-dark h-100" style={{ color: '#fff' }}>
+              <div className="card-body">
+                <div className="d-flex justify-content between align-items-center">
+                  <div className="card-title fw-medium">Recent Orders</div>
                 </div>
-                <div className='d-flex fw-normal table-responsive'>
+                <div className="d-flex fw-normal table-responsive">
                   <table
-                    className='table table-dark table-hover align-middle'
+                    className="table table-dark table-hover align-middle"
                     style={{
                       fontSize: '0.7rem',
                       textAlign: 'start',
@@ -284,16 +292,16 @@ const Dashboard = () => {
                   >
                     <thead>
                       <tr>
-                        <th className='fw-semibold' scope='col'>
+                        <th className="fw-semibold" scope="col">
                           Customer
                         </th>
-                        <th className='fw-semibold' scope='col'>
+                        <th className="fw-semibold" scope="col">
                           Order No.
                         </th>
-                        <th className='fw-semibold' scope='col'>
+                        <th className="fw-semibold" scope="col">
                           Amount
                         </th>
-                        <th className='fw-semibold' scope='col'>
+                        <th className="fw-semibold" scope="col">
                           Status
                         </th>
                       </tr>
@@ -301,11 +309,11 @@ const Dashboard = () => {
                     <tbody>
                       <tr>
                         <td
-                          className='d-flex align-items-center gap-2'
+                          className="d-flex align-items-center gap-2"
                           style={{ paddingLeft: '0' }}
                         >
-                          <div className='icon-image-customer'>
-                            <img src={Image} alt='Profile' />
+                          <div className="icon-image-customer">
+                            <img src={Profile2} alt="Profile" />
                           </div>
                           Wade Warren
                         </td>
@@ -313,7 +321,7 @@ const Dashboard = () => {
                         <td>$124.00</td>
                         <td>
                           <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            className="badge rounded-pill fw-lighter pt-1 pb-1"
                             style={{
                               backgroundColor: '#14591D',
                               color: '#E1E289',
@@ -325,11 +333,11 @@ const Dashboard = () => {
                       </tr>
                       <tr>
                         <td
-                          className='d-flex align-items-center gap-2'
+                          className="d-flex align-items-center gap-2"
                           style={{ paddingLeft: '0' }}
                         >
-                          <div className='icon-image-customer'>
-                            <img src={Image} alt='Profile' />
+                          <div className="icon-image-customer">
+                            <img src={Profile1} alt="Profile" />
                           </div>
                           Jane Cooper
                         </td>
@@ -337,7 +345,7 @@ const Dashboard = () => {
                         <td>$365.02</td>
                         <td>
                           <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            className="badge rounded-pill fw-lighter pt-1 pb-1"
                             style={{
                               backgroundColor: '#14591D',
                               color: '#E1E289',
@@ -349,11 +357,11 @@ const Dashboard = () => {
                       </tr>
                       <tr>
                         <td
-                          className='d-flex align-items-center gap-2'
+                          className="d-flex align-items-center gap-2"
                           style={{ paddingLeft: '0' }}
                         >
-                          <div className='icon-image-customer'>
-                            <img src={Image} alt='Profile' />
+                          <div className="icon-image-customer">
+                            <img src={Profile3} alt="Profile" />
                           </div>
                           Guy Hawkins
                         </td>
@@ -361,7 +369,7 @@ const Dashboard = () => {
                         <td>$45.88</td>
                         <td>
                           <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            className="badge rounded-pill fw-lighter pt-1 pb-1"
                             style={{
                               backgroundColor: '#A50104',
                               color: '#FFB4B4',
@@ -373,11 +381,11 @@ const Dashboard = () => {
                       </tr>
                       <tr>
                         <td
-                          className='d-flex align-items-center gap-2'
+                          className="d-flex align-items-center gap-2"
                           style={{ paddingLeft: '0' }}
                         >
-                          <div className='icon-image-customer'>
-                            <img src={Image} alt='Profile' />
+                          <div className="icon-image-customer">
+                            <img src={Profile4} alt="Profile" />
                           </div>
                           Kristin Watson
                         </td>
@@ -385,7 +393,7 @@ const Dashboard = () => {
                         <td>$65.00</td>
                         <td>
                           <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            className="badge rounded-pill fw-lighter pt-1 pb-1"
                             style={{
                               backgroundColor: '#A50104',
                               color: '#FFB4B4',
@@ -397,11 +405,11 @@ const Dashboard = () => {
                       </tr>
                       <tr>
                         <td
-                          className='d-flex align-items-center gap-2'
+                          className="d-flex align-items-center gap-2"
                           style={{ paddingLeft: '0' }}
                         >
-                          <div className='icon-image-customer'>
-                            <img src={Image} alt='Profile' />
+                          <div className="icon-image-customer">
+                            <img src={Profile5} alt="Profile" />
                           </div>
                           Cody Fisher
                         </td>
@@ -409,7 +417,7 @@ const Dashboard = () => {
                         <td>$545.00</td>
                         <td>
                           <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            className="badge rounded-pill fw-lighter pt-1 pb-1"
                             style={{
                               backgroundColor: '#14591D',
                               color: '#E1E289',
@@ -421,11 +429,11 @@ const Dashboard = () => {
                       </tr>
                       <tr>
                         <td
-                          className='d-flex align-items-center gap-2'
+                          className="d-flex align-items-center gap-2"
                           style={{ paddingLeft: '0' }}
                         >
-                          <div className='icon-image-customer'>
-                            <img src={Image} alt='Profile' />
+                          <div className="icon-image-customer">
+                            <img src={Profile6} alt="Profile" />
                           </div>
                           Savannah Nguyen
                         </td>
@@ -433,7 +441,7 @@ const Dashboard = () => {
                         <td>$128.20</td>
                         <td>
                           <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
+                            className="badge rounded-pill fw-lighter pt-1 pb-1"
                             style={{
                               backgroundColor: '#14591D',
                               color: '#E1E289',
@@ -449,42 +457,42 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className='col-12 col-lg-6 col-md-4 mb-3'>
-            <div className='card bg-dark h-100' style={{ color: '#fff' }}>
-              <div className='card-body'>
-                <div className='d-flex justify-content-between fw-medium pb-2'>
+          <div className="col-12 col-lg-6 col-md-4 mb-3">
+            <div className="card bg-dark h-100" style={{ color: '#fff' }}>
+              <div className="card-body">
+                <div className="d-flex justify-content-between fw-medium pb-2">
                   Customer's Feedback
                 </div>
                 <div>
-                  <table className='table table-dark text-start'>
-                    <tbody className='d-flex flex-column'>
+                  <table className="table table-dark text-start">
+                    <tbody className="d-flex flex-column">
                       <tr>
                         <td>
-                          <div className='d-flex flex-row align-items-center gap-2 pb-2 fw-medium'>
-                            <div className='icon-image-customer'>
-                              <img src={Image} alt='Profile' />
+                          <div className="d-flex flex-row align-items-center gap-2 pb-2 fw-medium">
+                            <div className="icon-image-customer">
+                              <img src={Profile7} alt="Profile" />
                             </div>
                             Jenny Wilson
                           </div>
-                          <div className='pb-1'>
+                          <div className="pb-1">
                             <FontAwesomeIcon
                               icon={faStar}
-                              color='#F4E409'
+                              color="#F4E409"
                               style={{ paddingRight: '1px' }}
                             />
                             <FontAwesomeIcon
                               icon={faStar}
-                              color='#F4E409'
+                              color="#F4E409"
                               style={{ paddingRight: '1px' }}
                             />
                             <FontAwesomeIcon
                               icon={faStar}
-                              color='#F4E409'
+                              color="#F4E409"
                               style={{ paddingRight: '1px' }}
                             />
                             <FontAwesomeIcon
                               icon={faStar}
-                              color='#F4E409'
+                              color="#F4E409"
                               style={{ paddingRight: '1px' }}
                             />
                             <FontAwesomeIcon
@@ -493,7 +501,7 @@ const Dashboard = () => {
                             />
                           </div>
                           <div
-                            className='lh-base'
+                            className="lh-base"
                             style={{ fontSize: '0.7rem', color: '#d0c4c4' }}
                           >
                             The food was excellent and so was the service. I had
@@ -506,41 +514,41 @@ const Dashboard = () => {
                       </tr>
                       <tr>
                         <td>
-                          <div className='d-flex flex-row align-items-center gap-2 pb-2 fw-medium'>
-                            <div className='icon-image-customer'>
-                              <img src={Image} alt='Profile' />
+                          <div className="d-flex flex-row align-items-center gap-2 pb-2 fw-medium">
+                            <div className="icon-image-customer">
+                              <img src={Profile8} alt="Profile" />
                             </div>
-                            Dianne Russell
+                            Prabal Goswami
                           </div>
-                          <div className='pb-1'>
+                          <div className="pb-1">
                             <FontAwesomeIcon
                               icon={faStar}
-                              color='#F4E409'
+                              color="#F4E409"
                               style={{ paddingRight: '1px' }}
                             />
                             <FontAwesomeIcon
                               icon={faStar}
-                              color='#F4E409'
+                              color="#F4E409"
                               style={{ paddingRight: '1px' }}
                             />
                             <FontAwesomeIcon
                               icon={faStar}
-                              color='#F4E409'
+                              color="#F4E409"
                               style={{ paddingRight: '1px' }}
                             />
                             <FontAwesomeIcon
                               icon={faStar}
-                              color='#F4E409'
+                              color="#F4E409"
                               style={{ paddingRight: '1px' }}
                             />
                             <FontAwesomeIcon
                               icon={faStar}
-                              color='#FAE409'
+                              color="#FAE409"
                               style={{ paddingRight: '1px' }}
                             />
                           </div>
                           <div
-                            className='lh-base'
+                            className="lh-base"
                             style={{ fontSize: '0.7rem', color: '#d0c4c4' }}
                           >
                             We enjoyed the Eggs Benedict served on homemade
