@@ -1,7 +1,3 @@
-/* * {
-  outline: 1px solid red;
-} */
-
 .App {
   text-align: center;
 }
@@ -46,4 +42,17 @@ body {
   color: rgba(255, 255, 255, 0.87); /* Light text color for readability */
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+}
+
+@media (max-width: 800px) {
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .main-content #page-content-wrapper {
+    align-self: center;
+  }
 }

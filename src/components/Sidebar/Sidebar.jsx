@@ -19,7 +19,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className='bg-dark rounded-bottom sidebar d-flex flex-column gap-4'>
+    <div className='bg-dark rounded-bottom sidebar gap-4'>
       <Link
         to='/'
         className={activeItem === 'home' ? 'active' : ''}

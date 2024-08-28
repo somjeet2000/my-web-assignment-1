@@ -7,6 +7,8 @@
   width: 100%;
   max-width: 75px; /* Fixed size at a certain breakpoint */
   transition: max-width 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar a {
@@ -38,9 +40,6 @@
   background-color: #17a2b8; /* Line color */
   /* transition: all 0.3s ease; */
   border-radius: 2rem;
-  /*
-    Transition to add the feature that when I click on the other icon, it line should moves with effect
-  */
   transition: top 0.3s ease, height 0.3s ease;
   height: 100%;
 }
@@ -72,5 +71,49 @@
 @media (max-width: 800px) {
   .sidebar a {
     width: 2.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    min-width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5px 10px 5px 5px;
+    min-height: auto;
+  }
+
+  .sidebar a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    width: 100%;
+    background-color: #17a2b8;
+    border-radius: 2rem;
+    transition: left 0.3s ease, width 0.3s ease;
+  }
+
+  .sidebar a.active::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    width: 100%;
+    background-color: #17a2b8;
+    border-radius: 2rem;
+    transition: left 0.3s ease, width 0.3s ease;
+  }
+}
+
+@media (max-width: 600px) {
+  .flex-grow-1 {
+    display: none;
   }
 }

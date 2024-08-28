@@ -65,15 +65,21 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 820px) {
   .custom-container {
-    padding: 0 20px 0 20px;
+    padding: 0 5px 0 5px;
+  }
+}
+
+@media (max-width: 500px) {
+  .custom-container {
+    padding: 0 5px 0 5px;
   }
 }
 
 @media (max-width: 400px) {
   .custom-container {
-    padding: 0 10px 0 20px;
+    padding: 0 5px 0 5px;
   }
 }
 
