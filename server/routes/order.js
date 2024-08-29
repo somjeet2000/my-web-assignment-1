@@ -22,7 +22,19 @@ router.post('/create_order', async (request, response) => {
       rating: rating,
     });
 
-    response.status(200).json({ orderCreate });
+    response.status(200).json(orderCreate);
+  } catch (error) {
+    return response
+      .status(500)
+      .json({ message: 'Internal Server Error', error: error.message });
+  }
+});
+
+// Route 2: Get the Details of all the Orders available in Database. GET: /api/v1/order/get_order_details.
+router.get('/get_order_details', async (request, response) => {
+  try {
+    const orderDetails = await Orders.find({});
+    response.status(200).json(orderDetails);
   } catch (error) {
     return response
       .status(500)
