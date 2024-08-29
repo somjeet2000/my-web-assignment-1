@@ -1,8 +1,9 @@
 const { MongoClient } = require('mongodb');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // MongoDB connection URI
-const uri =
-  'mongodb+srv://somjeetsrimani:Babai2000@cluster-dasboard-accele.00juq.mongodb.net/';
+const uri = process.env.MONGO_URL_SAMPLE_SCRIPT;
 const client = new MongoClient(uri);
 
 // Database and collection name
