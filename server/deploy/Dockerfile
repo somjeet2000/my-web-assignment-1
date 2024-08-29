@@ -10,7 +10,7 @@ COPY server/package-lock.json .
 
 RUN npm install
 
-COPY server/* .
+COPY server/ .
 
 EXPOSE 5000
 
