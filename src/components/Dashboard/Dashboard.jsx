@@ -20,7 +20,7 @@ import {
 } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import ActivityChart from '../ActivityChart';
-import Image from './Image.jpg';
+// import Image from './Image.jpg';
 import Profile1 from './Profile1.jpeg';
 import Profile2 from './Profile2.png';
 import Profile3 from './Profile3.jpg';
@@ -31,13 +31,30 @@ import Profile7 from './Profile7.jpeg';
 import Profile8 from './Profile8.jpeg';
 
 const Dashboard = () => {
-  const percentage = 70;
+  const profileImages = [
+    Profile1,
+    Profile2,
+    Profile3,
+    Profile4,
+    Profile5,
+    Profile6,
+    Profile7,
+    Profile8,
+  ];
   const host = 'https://dashboard-acceleration-server.onrender.com';
   const APP_VERSION = 'v1';
+  const goalOfOrders = 100;
+  const [percentage, setPercentage] = useState(0);
   const [totalOrders, setTotalOrders] = useState(0);
   const [itemsDelivered, setItemsDelivered] = useState(0);
   const [itemsCancelled, setItemsCancelled] = useState(0);
   const [calculateRevenue, setCalculateRevenue] = useState(0);
+  const [calculateNetProfit, setCalculateNetProfit] = useState(0);
+  const [recentOrders, setRecentOrders] = useState([]);
+  const [recentFeedback, setRecentFeedback] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Function to calculate the Order Details available in Database
   const getAllOrderDetails = async () => {
     const response = await fetch(
       `${host}/api/${APP_VERSION}/order/get_order_details`,
@@ -49,30 +66,53 @@ const Dashboard = () => {
       }
     );
     const responseJSON = await response.json();
+    setLoading(false);
     setTotalOrders(responseJSON.length);
     let deliveredCount = 0;
     let cancelledCount = 0;
-    let pendingCount = 0;
     let calculateTotalRevenue = 0;
+    let calculateNetProfit = 0;
+
     for (let i = 0; i < responseJSON.length; i++) {
+      // Calculate the delivery count and cancelled count
       if (responseJSON[i].orderStatus === 'Delivered') {
         deliveredCount++;
       } else if (responseJSON[i].orderStatus === 'Cancelled') {
         cancelledCount++;
-      } else if (responseJSON[i].orderStatus === 'Pending') {
-        pendingCount++;
       }
-      calculateTotalRevenue =
-        calculateTotalRevenue + responseJSON[i].costOfOrder;
+
+      // Calculate the Total revenue and Net profit
+      if (
+        responseJSON[i].orderStatus === 'Delivered' ||
+        responseJSON[i].orderStatus === 'Pending'
+      ) {
+        calculateTotalRevenue =
+          calculateTotalRevenue + responseJSON[i].costOfOrder;
+        calculateNetProfit = calculateNetProfit + responseJSON[i].netProfit;
+      }
     }
+    // Sort the array from the latest to oldest
+    const findRecentOrders = responseJSON.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+    setRecentOrders(findRecentOrders.slice(0, 6));
+    setRecentFeedback(findRecentOrders.slice(0, findRecentOrders.length));
     setItemsDelivered(deliveredCount);
     setItemsCancelled(cancelledCount);
-    console.log(pendingCount);
-    setCalculateRevenue(calculateTotalRevenue);
+    setCalculateRevenue(`$${Math.floor(calculateTotalRevenue)}`);
+    setCalculateNetProfit(parseFloat(calculateNetProfit).toFixed(2));
+    setPercentage(((deliveredCount / goalOfOrders) * 100).toFixed(0));
   };
   useEffect(() => {
-    getAllOrderDetails();
+    setInterval(() => {
+      getAllOrderDetails();
+    }, 10000);
   }, []);
+
+  if (loading) {
+    return <div className='p-3'>Loading...</div>;
+  }
+
   return (
     <main className='container custom-container'>
       <div className='custom-grid'>
@@ -142,7 +182,9 @@ const Dashboard = () => {
                     Net Profit
                   </div>
                   <div className='card-text d-flex flex-column align-items-start'>
-                    <div className='fs-2 fw-semibold pb-3'>$6759.25</div>
+                    <div className='fs-2 fw-semibold pb-3'>
+                      ${calculateNetProfit}
+                    </div>
                     <div
                       className='fw-medium'
                       style={{ color: '#82B535', fontSize: '0.9rem' }}
@@ -317,293 +359,181 @@ const Dashboard = () => {
           </div>
         </div>
         <div className='row custom-grid h-100'>
-          <div className='col-12 col-lg-6 col-md-8 mb-3'>
-            <div className='card bg-dark h-100' style={{ color: '#fff' }}>
-              <div className='card-body'>
-                <div className='d-flex justify-content between align-items-center'>
-                  <div className='card-title fw-medium'>Recent Orders</div>
-                </div>
-                <div className='d-flex fw-normal table-responsive'>
-                  <table
-                    className='table table-dark table-hover align-middle'
-                    style={{
-                      fontSize: '0.7rem',
-                      textAlign: 'start',
-                    }}
-                  >
-                    <thead>
-                      <tr>
-                        <th className='fw-semibold' scope='col'>
-                          Customer
-                        </th>
-                        <th className='fw-semibold' scope='col'>
-                          Order No.
-                        </th>
-                        <th className='fw-semibold' scope='col'>
-                          Amount
-                        </th>
-                        <th className='fw-semibold' scope='col'>
-                          Status
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td
-                          className='d-flex align-items-center gap-2'
-                          style={{ paddingLeft: '0' }}
-                        >
-                          <div className='icon-image-customer'>
-                            <img src={Profile2} alt='Profile' />
-                          </div>
-                          Wade Warren
-                        </td>
-                        <td>15478256</td>
-                        <td>$124.00</td>
-                        <td>
-                          <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
-                            style={{
-                              backgroundColor: '#14591D',
-                              color: '#E1E289',
-                            }}
-                          >
-                            Delivered
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td
-                          className='d-flex align-items-center gap-2'
-                          style={{ paddingLeft: '0' }}
-                        >
-                          <div className='icon-image-customer'>
-                            <img src={Profile1} alt='Profile' />
-                          </div>
-                          Jane Cooper
-                        </td>
-                        <td>48965786</td>
-                        <td>$365.02</td>
-                        <td>
-                          <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
-                            style={{
-                              backgroundColor: '#14591D',
-                              color: '#E1E289',
-                            }}
-                          >
-                            Delivered
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td
-                          className='d-flex align-items-center gap-2'
-                          style={{ paddingLeft: '0' }}
-                        >
-                          <div className='icon-image-customer'>
-                            <img src={Profile3} alt='Profile' />
-                          </div>
-                          Guy Hawkins
-                        </td>
-                        <td>78958215</td>
-                        <td>$45.88</td>
-                        <td>
-                          <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
-                            style={{
-                              backgroundColor: '#A50104',
-                              color: '#FFB4B4',
-                            }}
-                          >
-                            Cancelled
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td
-                          className='d-flex align-items-center gap-2'
-                          style={{ paddingLeft: '0' }}
-                        >
-                          <div className='icon-image-customer'>
-                            <img src={Profile4} alt='Profile' />
-                          </div>
-                          Kristin Watson
-                        </td>
-                        <td>20965732</td>
-                        <td>$65.00</td>
-                        <td>
-                          <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
-                            style={{
-                              backgroundColor: '#A50104',
-                              color: '#FFB4B4',
-                            }}
-                          >
-                            Pending
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td
-                          className='d-flex align-items-center gap-2'
-                          style={{ paddingLeft: '0' }}
-                        >
-                          <div className='icon-image-customer'>
-                            <img src={Profile5} alt='Profile' />
-                          </div>
-                          Cody Fisher
-                        </td>
-                        <td>95715620</td>
-                        <td>$545.00</td>
-                        <td>
-                          <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
-                            style={{
-                              backgroundColor: '#14591D',
-                              color: '#E1E289',
-                            }}
-                          >
-                            Delivered
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td
-                          className='d-flex align-items-center gap-2'
-                          style={{ paddingLeft: '0' }}
-                        >
-                          <div className='icon-image-customer'>
-                            <img src={Profile6} alt='Profile' />
-                          </div>
-                          Savannah Nguyen
-                        </td>
-                        <td>78514568</td>
-                        <td>$128.20</td>
-                        <td>
-                          <span
-                            className='badge rounded-pill fw-lighter pt-1 pb-1'
-                            style={{
-                              backgroundColor: '#14591D',
-                              color: '#E1E289',
-                            }}
-                          >
-                            Delivered
-                          </span>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+          {recentOrders.length > 0 ? (
+            <div className='col-12 col-lg-6 col-md-8 mb-3'>
+              <div className='card bg-dark h-100' style={{ color: '#fff' }}>
+                <div className='card-body'>
+                  <div className='d-flex justify-content between align-items-center'>
+                    <div className='card-title fw-medium'>Recent Orders</div>
+                  </div>
+                  <div className='d-flex fw-normal table-responsive'>
+                    <table
+                      className='table table-dark table-hover align-middle'
+                      style={{
+                        fontSize: '0.7rem',
+                        textAlign: 'start',
+                      }}
+                    >
+                      <thead>
+                        <tr>
+                          <th className='fw-semibold' scope='col'>
+                            Customer
+                          </th>
+                          <th className='fw-semibold' scope='col'>
+                            Order No.
+                          </th>
+                          <th className='fw-semibold' scope='col'>
+                            Amount
+                          </th>
+                          <th className='fw-semibold' scope='col'>
+                            Status
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {recentOrders.map((order, index) => (
+                          <tr key={index}>
+                            <td className='d-flex align-items-center gap-2'>
+                              <div className='icon-image-customer'>
+                                <img
+                                  src={
+                                    profileImages[index % profileImages.length]
+                                  }
+                                  alt='Profile'
+                                />
+                              </div>
+                              <div>{order.userName}</div>
+                            </td>
+                            <td>{order.orderID}</td>
+                            <td>{order.costOfOrder}</td>
+                            <td>
+                              <span
+                                className='badge rounded-pill fw-lighter pt-1 pb-1'
+                                style={{
+                                  backgroundColor: `${
+                                    order.orderStatus === 'Delivered'
+                                      ? '#14591D'
+                                      : '#A50104'
+                                  }`,
+                                  color: `${
+                                    order.orderStatus === 'Delivered'
+                                      ? '#E1E289'
+                                      : '#FFB4B4'
+                                  }`,
+                                }}
+                              >
+                                {order.orderStatus}
+                              </span>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className='col-12 col-lg-6 col-md-4 mb-3'>
-            <div className='card bg-dark h-100' style={{ color: '#fff' }}>
-              <div className='card-body'>
-                <div className='d-flex justify-content-between fw-medium pb-2'>
-                  Customer's Feedback
-                </div>
-                <div>
-                  <table className='table table-dark text-start'>
-                    <tbody className='d-flex flex-column'>
-                      <tr>
-                        <td>
-                          <div className='d-flex flex-row align-items-center gap-2 pb-2 fw-medium'>
-                            <div className='icon-image-customer'>
-                              <img src={Profile7} alt='Profile' />
-                            </div>
-                            Jenny Wilson
-                          </div>
-                          <div className='pb-1'>
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              color='#F4E409'
-                              style={{ paddingRight: '1px' }}
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              color='#F4E409'
-                              style={{ paddingRight: '1px' }}
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              color='#F4E409'
-                              style={{ paddingRight: '1px' }}
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              color='#F4E409'
-                              style={{ paddingRight: '1px' }}
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              style={{ paddingRight: '1px' }}
-                            />
-                          </div>
-                          <div
-                            className='lh-base'
-                            style={{ fontSize: '0.7rem', color: '#d0c4c4' }}
-                          >
-                            The food was excellent and so was the service. I had
-                            the mushroom risotto with scallops which was
-                            awesome. I had a burger over greens (gluten-free)
-                            which was also very good. They were very
-                            conscientious about gluten allergies.
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div className='d-flex flex-row align-items-center gap-2 pb-2 fw-medium'>
-                            <div className='icon-image-customer'>
-                              <img src={Profile8} alt='Profile' />
-                            </div>
-                            Prabal Goswami
-                          </div>
-                          <div className='pb-1'>
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              color='#F4E409'
-                              style={{ paddingRight: '1px' }}
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              color='#F4E409'
-                              style={{ paddingRight: '1px' }}
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              color='#F4E409'
-                              style={{ paddingRight: '1px' }}
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              color='#F4E409'
-                              style={{ paddingRight: '1px' }}
-                            />
-                            <FontAwesomeIcon
-                              icon={faStar}
-                              color='#FAE409'
-                              style={{ paddingRight: '1px' }}
-                            />
-                          </div>
-                          <div
-                            className='lh-base'
-                            style={{ fontSize: '0.7rem', color: '#d0c4c4' }}
-                          >
-                            We enjoyed the Eggs Benedict served on homemade
-                            focaccia bread and hot coffee. I am happy with the
-                            service.
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+          ) : (
+            <div className='col-12 col-lg-6 col-md-8 mb-3'>
+              <div className='card bg-dark h-100' style={{ color: '#fff' }}>
+                <div className='card-body'>
+                  <div className='d-flex justify-content between align-items-center'>
+                    <div className='card-title fw-medium'>
+                      Recent Orders Loading...
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
+          {recentFeedback.length > 0 ? (
+            <div className='col-12 col-lg-6 col-md-4 mb-3'>
+              <div className='card bg-dark h-100' style={{ color: '#fff' }}>
+                <div className='card-body'>
+                  <div className='d-flex justify-content-between fw-medium pb-2'>
+                    Customer's Feedback
+                  </div>
+                  <div className='scrollable-container'>
+                    <table className='table table-dark text-start'>
+                      <tbody>
+                        {recentFeedback.map((feedback, index) => (
+                          <tr key={index}>
+                            <td>
+                              <div className='d-flex flex-row align-items-center gap-2 pb-2 fw-medium'>
+                                <div className='icon-image-customer'>
+                                  <img
+                                    src={
+                                      profileImages[
+                                        index % profileImages.length
+                                      ]
+                                    }
+                                    alt='Profile'
+                                  />
+                                </div>
+                                {feedback.userName}
+                              </div>
+                              <div className='pb-1'>
+                                {Array.from({ length: 5 }, (_, index) => (
+                                  <FontAwesomeIcon
+                                    key={index}
+                                    icon={faStar}
+                                    color={
+                                      index < feedback.rating ? '#F4E409' : ''
+                                    } // Filled stars and unfilled stars
+                                    style={{ paddingRight: '1px' }}
+                                  />
+                                ))}
+                                {/* <FontAwesomeIcon
+                                  icon={faStar}
+                                  color='#F4E409'
+                                  style={{ paddingRight: '1px' }}
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  color='#F4E409'
+                                  style={{ paddingRight: '1px' }}
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  color='#F4E409'
+                                  style={{ paddingRight: '1px' }}
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  color='#F4E409'
+                                  style={{ paddingRight: '1px' }}
+                                />
+                                <FontAwesomeIcon
+                                  icon={faStar}
+                                  style={{ paddingRight: '1px' }}
+                                /> */}
+                              </div>
+                              <div
+                                className='lh-base'
+                                style={{ fontSize: '0.7rem', color: '#d0c4c4' }}
+                              >
+                                {feedback.feedback}
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className='col-12 col-lg-6 col-md-4 mb-3'>
+              <div className='card bg-dark h-100' style={{ color: '#fff' }}>
+                <div className='card-body'>
+                  <div className='d-flex justify-content-between fw-medium pb-2'>
+                    Customer's Feedback Loading...
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </main>

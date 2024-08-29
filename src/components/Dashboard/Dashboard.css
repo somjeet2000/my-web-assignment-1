@@ -18,6 +18,30 @@
   object-fit: cover;
 }
 
+.scrollable-container {
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 300px;
+}
+
+.scrollable-container::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: #000; /* Background color of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the entire scrollbar */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: #888; /* Background color of the scrollbar thumb */
+  border-radius: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Background color of the scrollbar thumb on hover */
+}
+
 /* Default styles for larger screens (laptops, desktops) */
 .custom-grid .col-md-2 {
   flex: 0 0 16.66667%;
