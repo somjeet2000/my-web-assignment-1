@@ -37,7 +37,7 @@ pipeline {
                 }
                 stage('Checkout') {
                     steps {
-                        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/somjeet2000/smart-commute-planner-server.git']])
+                        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/somjeet2000/my-web-assignment-1.git']])
                     }
                 }
             }
@@ -51,7 +51,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'npm install'
+                sh 'cd server && npm install'
             }
         }
 
