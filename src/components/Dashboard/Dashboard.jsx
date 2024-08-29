@@ -41,7 +41,8 @@ const Dashboard = () => {
     Profile7,
     Profile8,
   ];
-  const host = 'https://dashboard-acceleration-server.onrender.com';
+  // const host = 'https://dashboard-acceleration-server.onrender.com';
+  const host = 'http://localhost:5000';
   const APP_VERSION = 'v1';
   const goalOfOrders = 100;
   const [percentage, setPercentage] = useState(0);
@@ -224,39 +225,7 @@ const Dashboard = () => {
         <div className='row custom-grid'>
           <div className='col-12 col-lg-6 col-md-8 mb-3 h-100'>
             <div className='card bg-dark' style={{ color: '#fff' }}>
-              <div className='card-body'>
-                <div className='d-flex justify-content-between align-items-center'>
-                  <div className='card-title fw-medium'>Activity</div>
-                  <select
-                    className='p-1'
-                    style={{
-                      color: '#fff',
-                      backgroundColor: '#383840',
-                      maxWidth: '100px',
-                      height: '25px',
-                      borderRadius: '3rem',
-                      fontSize: '0.7rem',
-                      border: 'none',
-                    }}
-                  >
-                    <option defaultValue value='Weekly' className='bg-dark'>
-                      Weekly
-                    </option>
-                    <option value='Daily' className='bg-dark'>
-                      Daily
-                    </option>
-                    <option value='Monthly' className='bg-dark'>
-                      Monthly
-                    </option>
-                    <option value='Yearly' className='bg-dark'>
-                      Yearly
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <ActivityChart />
-              </div>
+              <ActivityChart />
             </div>
           </div>
           <div className='col-12 col-lg-6 col-md-4 mb-3 h-100'>
