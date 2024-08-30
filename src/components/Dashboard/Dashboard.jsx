@@ -59,10 +59,10 @@ const Dashboard = () => {
   const formatRevenue = (value) => {
     if (value >= 1e6) {
       // Millions
-      return `${(value / 1e6).toFixed(1)}M`;
+      return `$${(value / 1e6).toFixed(1)}M`;
     } else if (value >= 1e3) {
       // Thousands
-      return `${(value / 1e3).toFixed(1)}k`;
+      return `$${(value / 1e3).toFixed(1)}k`;
     } else {
       // Less than a thousand, just return the value
       return value.toString();
