@@ -41,8 +41,8 @@ const Dashboard = () => {
     Profile7,
     Profile8,
   ];
-  // const host = 'https://dashboard-acceleration-server.onrender.com';
-  const host = 'http://localhost:5000';
+  const host = 'https://dashboard-acceleration-server.onrender.com';
+  // const host = 'http://localhost:5000';
   const APP_VERSION = 'v1';
   const goalOfOrders = 100;
   const [percentage, setPercentage] = useState(0);
@@ -54,6 +54,20 @@ const Dashboard = () => {
   const [recentOrders, setRecentOrders] = useState([]);
   const [recentFeedback, setRecentFeedback] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  // Function to format the Revenue
+  const formatRevenue = (value) => {
+    if (value >= 1e6) {
+      // Millions
+      return `${(value / 1e6).toFixed(1)}M`;
+    } else if (value >= 1e3) {
+      // Thousands
+      return `${(value / 1e3).toFixed(1)}k`;
+    } else {
+      // Less than a thousand, just return the value
+      return value.toString();
+    }
+  };
 
   // Function to calculate the Order Details available in Database
   const getAllOrderDetails = async () => {
@@ -96,14 +110,17 @@ const Dashboard = () => {
     const findRecentOrders = responseJSON.sort(
       (a, b) => new Date(b.date) - new Date(a.date)
     );
+
+    // Set the states to view it in the user interface.
     setRecentOrders(findRecentOrders.slice(0, 6));
     setRecentFeedback(findRecentOrders.slice(0, findRecentOrders.length));
     setItemsDelivered(deliveredCount);
     setItemsCancelled(cancelledCount);
-    setCalculateRevenue(`$${Math.floor(calculateTotalRevenue)}`);
+    setCalculateRevenue(formatRevenue(calculateTotalRevenue));
     setCalculateNetProfit(parseFloat(calculateNetProfit).toFixed(2));
     setPercentage(((deliveredCount / goalOfOrders) * 100).toFixed(0));
   };
+
   useEffect(() => {
     setInterval(() => {
       getAllOrderDetails();
@@ -111,7 +128,16 @@ const Dashboard = () => {
   }, []);
 
   if (loading) {
-    return <div className='p-3'>Loading...</div>;
+    // return <div className='p-3'>Loading...</div>;
+    return (
+      <main className='container custom-container'>
+        <div className='custom-grid'>
+          <div className='d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center'>
+            <h4 className='pt-3 pb-2'>Dashboard Loading...</h4>
+          </div>
+        </div>
+      </main>
+    );
   }
 
   return (
@@ -374,19 +400,30 @@ const Dashboard = () => {
                               <div>{order.userName}</div>
                             </td>
                             <td>{order.orderID}</td>
-                            <td>{order.costOfOrder}</td>
+                            <td>${order.costOfOrder}</td>
                             <td>
                               <span
                                 className='badge rounded-pill fw-lighter pt-1 pb-1'
                                 style={{
+                                  // backgroundColor: `if(order.orderStatus === 'Delivered') {
+                                  //   return '#14591D'
+                                  // } else if(order.orderStatus === 'Pending') {
+                                  //   return '#A50104'
+                                  //  } else {
+                                  //   return '#FCDC4D'
+                                  // }`,
                                   backgroundColor: `${
                                     order.orderStatus === 'Delivered'
                                       ? '#14591D'
+                                      : order.orderStatus === 'Pending'
+                                      ? '#5A5766'
                                       : '#A50104'
                                   }`,
                                   color: `${
                                     order.orderStatus === 'Delivered'
                                       ? '#E1E289'
+                                      : order.orderStatus === 'Pending'
+                                      ? '#EDFFEC'
                                       : '#FFB4B4'
                                   }`,
                                 }}

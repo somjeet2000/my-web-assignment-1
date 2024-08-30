@@ -25,8 +25,8 @@ const ActivityChart = () => {
   const [loading, setLoading] = useState(true);
   const [timeFrame, setTimeFrame] = useState('Yearly'); // Default: Yearly
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth()); // Default to current month
-  // const host = 'https://dashboard-acceleration-server.onrender.com';
-  const host = 'http://localhost:5000';
+  const host = 'https://dashboard-acceleration-server.onrender.com';
+  // const host = 'http://localhost:5000';
   const APP_VERSION = 'v1';
 
   // Get the details of the order
