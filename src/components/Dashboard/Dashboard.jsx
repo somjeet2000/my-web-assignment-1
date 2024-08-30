@@ -405,13 +405,6 @@ const Dashboard = () => {
                               <span
                                 className='badge rounded-pill fw-lighter pt-1 pb-1'
                                 style={{
-                                  // backgroundColor: `if(order.orderStatus === 'Delivered') {
-                                  //   return '#14591D'
-                                  // } else if(order.orderStatus === 'Pending') {
-                                  //   return '#A50104'
-                                  //  } else {
-                                  //   return '#FCDC4D'
-                                  // }`,
                                   backgroundColor: `${
                                     order.orderStatus === 'Delivered'
                                       ? '#14591D'
@@ -489,30 +482,6 @@ const Dashboard = () => {
                                     style={{ paddingRight: '1px' }}
                                   />
                                 ))}
-                                {/* <FontAwesomeIcon
-                                  icon={faStar}
-                                  color='#F4E409'
-                                  style={{ paddingRight: '1px' }}
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  color='#F4E409'
-                                  style={{ paddingRight: '1px' }}
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  color='#F4E409'
-                                  style={{ paddingRight: '1px' }}
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  color='#F4E409'
-                                  style={{ paddingRight: '1px' }}
-                                />
-                                <FontAwesomeIcon
-                                  icon={faStar}
-                                  style={{ paddingRight: '1px' }}
-                                /> */}
                               </div>
                               <div
                                 className='lh-base'
